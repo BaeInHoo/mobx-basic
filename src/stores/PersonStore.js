@@ -7,6 +7,10 @@ export default class PersonStore {
   @observable
   age = 39;
 
+  get age10() {
+    return Math.floor(this.age / 10) * 10;
+  }
+
   constructor() {
     makeObservable(this);
   }
