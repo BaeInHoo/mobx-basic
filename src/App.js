@@ -1,14 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
-import { observer } from 'mobx-react';
+import { observer, inject } from 'mobx-react';
 import React, { useContext } from 'react';
 import PersonContext from './contexts/PersonContext';
 import autobind from 'autobind-decorator';
 import { action, computed } from 'mobx';
 
-function App () {
-  const personStore = useContext(PersonContext);
-
+function App ({ personStore }) {
   const age10 = computed(() => {
     return Math.floor(personStore.age / 10) * 10;
   }).get();
@@ -41,4 +39,4 @@ function App () {
   }
 };
 
-export default observer(App);
+export default inject("personStore")(observer(App));

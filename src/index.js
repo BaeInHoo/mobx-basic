@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import { Provider } from "mobx-react";
 
 // setInterval(() => {
 //   personStore.age++;
@@ -56,9 +57,9 @@ personStore.age = 40;
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <PersonContext.Provider value={personStore}>
+    <Provider personStore={personStore}>
       <App />
-    </PersonContext.Provider>
+    </Provider>
   </React.StrictMode>
 );
 
