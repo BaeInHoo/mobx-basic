@@ -3,7 +3,7 @@ import TodoStore from "./TodoStore";
 
 export default class RootStore {
   constructor() {
-    this.todoStore = new TodoStore();
-    this.personStore = new PersonStore();
+    this.todoStore = new TodoStore(this);
+    this.personStore = new PersonStore(this);
   }
 }

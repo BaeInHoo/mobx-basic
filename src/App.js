@@ -1,42 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
-import { observer, inject } from 'mobx-react';
-import React, { useContext } from 'react';
-import PersonContext from './contexts/PersonContext';
-import autobind from 'autobind-decorator';
-import { action, computed } from 'mobx';
+import React from 'react';
+import PersonContainer from './containers/PersonContainer';
+import TodoContainer from './containers/TodoContainer';
+import TodoFormContainer from './containers/TodoFormContainer';
 
-function App ({ personStore }) {
-  const age10 = computed(() => {
-    return Math.floor(personStore.age / 10) * 10;
-  }).get();
-
-  console.log("render", personStore.age, personStore.name);
+function App () {
 
   return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            {personStore.age}, {personStore.name}
-          </p>
-          <p>
-            <button onClick={click}>plus</button>
-          </p>
-        </header>
-      </div>
+    <div className="App">
+      <header className="App-header">
+        <PersonContainer />
+        <TodoContainer />
+        <TodoFormContainer />
+      </header>
+    </div>
   );
-  
-  function click() {
-    // personStore.plus();
-    setTimeout(
-      action(() => {
-        personStore.age = 45;
-        personStore.name = "WoongJae";
-      }), 
-      500
-    ); 
-  }
-};
+}
 
-export default inject("personStore")(observer(App));
+export default App;

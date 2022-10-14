@@ -1,5 +1,6 @@
 import { useCallback } from "react";
 import PersonStore from "../stores/PersonStore";
+import Person from "../components/Person";
 
 const PersonContainer = ({ personStore }) => {
   const age10 = PersonStore.age10;
@@ -11,4 +12,4 @@ const PersonContainer = ({ personStore }) => {
   return <Person age10={age10} plus={plus}/>;
 };
 
-export default inject('personStore')(observer(PersonContainer))
+export default inject('personStore')(observer(PersonContainer));
