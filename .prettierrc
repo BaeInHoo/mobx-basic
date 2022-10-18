@@ -1,0 +1,6 @@
+{
+  "importOrderParserPlugins": [
+    "classproperties",
+    "decorators-lagacy"
+  ]
+}
